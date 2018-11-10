@@ -1,4 +1,4 @@
-# Tournament Owl
+# TournLeague Owl
 
 Want a place where you can create smaller tournaments or maybe leagues with
 some friends? You've come to the right place! Or well, at least this will soon
