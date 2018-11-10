@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import Auth from './Authentication';
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <code>TODO: Implement App</code>
-      </div>
+      <>
+        <Auth>
+          <code>TODO: Implement App</code>
+        </Auth>
+      </>
     );
   }
 }
