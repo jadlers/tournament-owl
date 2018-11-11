@@ -1,10 +1,10 @@
 import React from 'react';
-import SignInForm from './components/SignInForm.js';
-import { signIn as firebaseSignIn, subscribeAuthChange } from './firebase';
+import SignInForm from './SignInForm.js';
+import { signIn as firebaseSignIn, subscribeAuthChange } from './firebaseAuth';
 
 const AuthContext = React.createContext();
 
-class Authentication extends React.Component {
+class AuthProvider extends React.Component {
   state = { user: null, firstAuth: true };
 
   componentDidMount() {
@@ -42,4 +42,4 @@ class Authentication extends React.Component {
   }
 }
 
-export default Authentication;
+export default AuthProvider;

@@ -1,19 +1,17 @@
 import React, { Component } from 'react';
-import Auth from './Authentication';
+import AuthProvider from './Authentication/AuthProvider';
 
-import { signOut } from './firebase';
+import { signOut } from './Authentication/firebaseAuth';
 
 class App extends Component {
   render() {
     return (
-      <>
-        <Auth>
-          <header>
-            <button onClick={signOut}>Sign out</button>
-          </header>
-          <code>TODO: Implement App</code>
-        </Auth>
-      </>
+      <AuthProvider>
+        <header>
+          <button onClick={signOut}>Sign out</button>
+        </header>
+        <code>TODO: Implement App</code>
+      </AuthProvider>
     );
   }
 }
