@@ -5,14 +5,14 @@ import { signIn as firebaseSignIn, subscribeAuthChange } from './firebase';
 const AuthContext = React.createContext();
 
 class Authentication extends React.Component {
-  state = { user: null };
+  state = { user: null, firstAuth: true };
 
   componentDidMount() {
     this.unsubscribeAuthChange = subscribeAuthChange(user => {
       if (user) {
-        this.setState({ user });
+        this.setState({ user, firstAuth: false });
       } else {
-        this.setState({ user: null });
+        this.setState({ user: null, firstAuth: false });
       }
     });
   }
@@ -28,10 +28,10 @@ class Authentication extends React.Component {
   };
 
   render() {
-    const { user } = this.state;
+    const { user, firstAuth } = this.state;
     const { children } = this.props;
 
-    return user ? (
+    return firstAuth ? null : user ? (
       <AuthContext.Provider value={user}>{children}</AuthContext.Provider>
     ) : (
       <div>
