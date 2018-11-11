@@ -1,5 +1,12 @@
 # Created with https://www.gitignore.io
 
+### Firebase ###
+.firebase/
+.firebaserc
+
+### Build ###
+build/
+
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
