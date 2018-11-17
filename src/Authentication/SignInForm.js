@@ -9,7 +9,7 @@ const Form = styled.form({
   padding: '0 1em',
   maxWidth: '350px',
   margin: '2em auto 0',
-  input: {
+  'input:not([type="submit"])': {
     marginBottom: '1em',
   },
 });
@@ -71,10 +71,7 @@ class SignInForm extends React.Component {
           <Button
             formnovalidate
             onClick={this.resetPassword}
-            style={{
-              marginRight: '1em',
-              marginBottom: '1em',
-            }}
+            style={{ marginRight: '1em' }}
           >
             Forgot password
           </Button>
