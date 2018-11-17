@@ -41,25 +41,30 @@ class SignInForm extends React.Component {
 
     return (
       <Form onSubmit={this.handleSubmit}>
-        <label name="user-email">Email</label>
-        <Input
-          required
-          autoFocus
-          name="user-email"
-          type="email"
-          placeholder="email@example.org"
-          value={email}
-          onChange={e => this.setState({ email: e.target.value })}
-        />
+        <label>
+          Email
+          <Input
+            required
+            autoFocus
+            name="user-email"
+            type="email"
+            placeholder="user@domain.org"
+            value={email}
+            onChange={e => this.setState({ email: e.target.value })}
+          />
+        </label>
 
-        <label name="user-password">Password</label>
-        <Input
-          required
-          name="user-password"
-          type="password"
-          value={password}
-          onChange={e => this.setState({ password: e.target.value })}
-        />
+        <label>
+          Password
+          <Input
+            required
+            name="user-password"
+            type="password"
+            value={password}
+            onChange={e => this.setState({ password: e.target.value })}
+          />
+        </label>
+
         <FormActions>
           <SubmitButton type="submit" value="Sign in" />
           {/* TODO: Implement resetting password*/}
