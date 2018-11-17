@@ -54,3 +54,13 @@ export const PrimaryButton = styled(Button)({
     borderColor: '#204d74',
   },
 });
+
+export const Error = styled.div({
+  padding: '.7em .5em',
+  color: '#fff',
+  backgroundColor: '#d75f68',
+  border: '2px solid #b60101',
+  borderRadius: '.2em',
+  textAlign: 'center',
+  fontWeight: 'bold',
+});

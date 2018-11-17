@@ -5,7 +5,7 @@ import { signIn as firebaseSignIn, subscribeAuthChange } from './firebaseAuth';
 const AuthContext = React.createContext();
 
 class AuthProvider extends React.Component {
-  state = { user: null, firstAuth: true };
+  state = { user: null, firstAuth: true, error: null };
 
   componentDidMount() {
     this.unsubscribeAuthChange = subscribeAuthChange(user => {
@@ -21,20 +21,23 @@ class AuthProvider extends React.Component {
     this.unsubscribeAuthChange();
   }
 
-  handleSubmit = (email, password) => {
-    firebaseSignIn(email, password)
-      .then(res => this.setState({ user: res.user }))
-      .catch(err => console.log('Oh no...', err));
+  signIn = async (email, password) => {
+    try {
+      const res = await firebaseSignIn(email, password);
+      this.setState({ user: res.user });
+    } catch (error) {
+      this.setState({ error });
+    }
   };
 
   render() {
-    const { user, firstAuth } = this.state;
+    const { user, firstAuth, error } = this.state;
     const { children } = this.props;
 
     return firstAuth ? null : user ? (
       <AuthContext.Provider value={user}>{children}</AuthContext.Provider>
     ) : (
-      <LoginPage submit={this.handleSubmit} />
+      <LoginPage error={error} signIn={this.signIn} />
     );
   }
 }

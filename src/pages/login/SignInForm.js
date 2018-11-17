@@ -27,7 +27,7 @@ class SignInForm extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.submit(this.state.email, this.state.password);
+    this.props.signIn(this.state.email, this.state.password);
   };
 
   // TODO: Hook up reset password
