@@ -27,10 +27,9 @@ class SignInForm extends React.Component {
     this.props.signIn(this.state.email, this.state.password);
   };
 
-  // TODO: Hook up reset password
   resetPassword = e => {
     e.preventDefault();
-    console.log(e.target.form[0].checkValidity());
+    this.props.resetPassword(this.state.email);
   };
 
   render() {

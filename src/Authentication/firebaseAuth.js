@@ -12,4 +12,12 @@ function subscribeAuthChange(callback) {
   return firebase.auth().onAuthStateChanged(callback);
 }
 
-export { signIn, signOut, subscribeAuthChange };
+function resetPassword(email) {
+  const actionCodeSettings = {
+    url: 'https://tournleague-owl.firebaseapp.com/',
+  };
+
+  return firebase.auth().sendPasswordResetEmail(email, actionCodeSettings);
+}
+
+export { signIn, signOut, resetPassword, subscribeAuthChange };

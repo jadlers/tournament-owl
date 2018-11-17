@@ -14,11 +14,20 @@ const LoginContainer = styled.div({
   },
 });
 
+const InfoBox = styled.div({
+  padding: '.7em .5em',
+  marginBottom: '1em',
+  backgroundColor: '#ccc',
+  border: '2px solid #333',
+  borderRadius: '.2em',
+});
+
 const getErrorMessage = error => {
   switch (error.code) {
     case 'auth/user-not-found':
+      return 'There is no user with that email registered';
     case 'auth/wrong-password':
-      return 'Invalid email or password';
+      return 'Invalid password';
     case 'auth/invalid-email':
       return 'Email address entered is not valid';
     case 'auth/too-many-requests':
@@ -29,12 +38,13 @@ const getErrorMessage = error => {
   }
 };
 
-const LoginPage = ({ error, signIn }) => (
+const LoginPage = ({ error, signIn, message, resetPassword }) => (
   <LoginContainer>
     {error && (
       <Error style={{ marginBottom: '2em' }}>{getErrorMessage(error)}</Error>
     )}
-    <SignInForm signIn={signIn} />
+    {message && <InfoBox>{message}</InfoBox>}
+    <SignInForm signIn={signIn} resetPassword={resetPassword} />
   </LoginContainer>
 );
 
