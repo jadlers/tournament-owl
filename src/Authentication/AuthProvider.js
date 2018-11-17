@@ -24,7 +24,7 @@ class AuthProvider extends React.Component {
   signIn = async (email, password) => {
     try {
       const res = await firebaseSignIn(email, password);
-      this.setState({ user: res.user });
+      this.setState({ user: res.user, error: null });
     } catch (error) {
       this.setState({ error });
     }

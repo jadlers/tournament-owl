@@ -6,9 +6,6 @@ import { Input, PrimaryButton, Button } from '../../styled/components';
 const SubmitButton = PrimaryButton.withComponent('input');
 
 const Form = styled.form({
-  padding: '0 1em',
-  maxWidth: '350px',
-  margin: '2em auto 0',
   'input:not([type="submit"])': {
     marginBottom: '1em',
   },

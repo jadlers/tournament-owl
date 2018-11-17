@@ -1,6 +1,18 @@
 import React from 'react';
+import styled from '@emotion/styled/macro';
+
 import SignInForm from './SignInForm';
 import { Error } from '../../styled/components';
+import { queries } from '../../styled/layout';
+
+const LoginContainer = styled.div({
+  marginTop: '2em',
+  padding: '0 1em',
+  [queries.tablet]: {
+    maxWidth: '400px',
+    margin: '2em auto 0',
+  },
+});
 
 const getErrorMessage = error => {
   switch (error.code) {
@@ -18,10 +30,12 @@ const getErrorMessage = error => {
 };
 
 const LoginPage = ({ error, signIn }) => (
-  <>
-    {error && <Error>{getErrorMessage(error)}</Error>}
+  <LoginContainer>
+    {error && (
+      <Error style={{ marginBottom: '2em' }}>{getErrorMessage(error)}</Error>
+    )}
     <SignInForm signIn={signIn} />
-  </>
+  </LoginContainer>
 );
 
 export default LoginPage;
