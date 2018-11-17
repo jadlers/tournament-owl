@@ -38,7 +38,7 @@ class AuthProvider extends React.Component {
     try {
       await firebaseResetPassword(email);
       this.setState({
-        message: `An email has been sent to ${email} with instructions on how to reset your password`,
+        message: `An email has been sent to ${email} with instructions on how to reset your password. The email subject will include "TournLeague Owl". It could end up in spam so check there as well.`,
         error: null,
       });
     } catch (error) {
