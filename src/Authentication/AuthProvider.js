@@ -34,10 +34,7 @@ class AuthProvider extends React.Component {
     return firstAuth ? null : user ? (
       <AuthContext.Provider value={user}>{children}</AuthContext.Provider>
     ) : (
-      <div>
-        <p> You need to sign in</p>
-        <SignInForm submit={this.handleSubmit} />
-      </div>
+      <SignInForm submit={this.handleSubmit} />
     );
   }
 }

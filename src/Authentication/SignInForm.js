@@ -1,4 +1,23 @@
 import React from 'react';
+import styled from '@emotion/styled/macro';
+
+import { Input, PrimaryButton, Button } from '../styled/components';
+
+const SubmitButton = PrimaryButton.withComponent('input');
+
+const Form = styled.form({
+  padding: '0 1em',
+  maxWidth: '350px',
+  margin: '2em auto 0',
+  input: {
+    marginBottom: '1em',
+  },
+});
+
+const FormActions = styled.div({
+  display: 'flex',
+  flexDirection: 'row-reverse',
+});
 
 class SignInForm extends React.Component {
   state = {
@@ -11,27 +30,51 @@ class SignInForm extends React.Component {
     this.props.submit(this.state.email, this.state.password);
   };
 
+  // TODO: Hook up reset password
+  resetPassword = e => {
+    e.preventDefault();
+    console.log(e.target.form[0].checkValidity());
+  };
+
   render() {
     const { email, password } = this.state;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input
+      <Form onSubmit={this.handleSubmit}>
+        <label name="user-email">Email</label>
+        <Input
           required
+          autoFocus
           name="user-email"
           type="email"
+          placeholder="email@example.org"
           value={email}
           onChange={e => this.setState({ email: e.target.value })}
         />
-        <input
+
+        <label name="user-password">Password</label>
+        <Input
           required
           name="user-password"
           type="password"
           value={password}
           onChange={e => this.setState({ password: e.target.value })}
         />
-        <button>Sign in</button>
-      </form>
+        <FormActions>
+          <SubmitButton type="submit" value="Sign in" />
+          {/* TODO: Implement resetting password*/}
+          <Button
+            formnovalidate
+            onClick={this.resetPassword}
+            style={{
+              marginRight: '1em',
+              marginBottom: '1em',
+            }}
+          >
+            Forgot password
+          </Button>
+        </FormActions>
+      </Form>
     );
   }
 }
