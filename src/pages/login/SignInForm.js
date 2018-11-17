@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 
-import { Input, PrimaryButton, Button } from '../styled/components';
+import { Input, PrimaryButton, Button } from '../../styled/components';
 
 const SubmitButton = PrimaryButton.withComponent('input');
 

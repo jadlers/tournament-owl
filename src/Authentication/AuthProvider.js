@@ -1,5 +1,5 @@
 import React from 'react';
-import SignInForm from './SignInForm.js';
+import LoginPage from '../pages/login';
 import { signIn as firebaseSignIn, subscribeAuthChange } from './firebaseAuth';
 
 const AuthContext = React.createContext();
@@ -34,7 +34,7 @@ class AuthProvider extends React.Component {
     return firstAuth ? null : user ? (
       <AuthContext.Provider value={user}>{children}</AuthContext.Provider>
     ) : (
-      <SignInForm submit={this.handleSubmit} />
+      <LoginPage submit={this.handleSubmit} />
     );
   }
 }
