@@ -15,5 +15,9 @@ const User = ({ uid }) => {
     </div>
   );
 };
+const CurrentUser = () => (
+  <Redirect to={`/user/${getCurrentUser().uid}`} noThrow />
+);
 
 export default User;
+export { CurrentUser };

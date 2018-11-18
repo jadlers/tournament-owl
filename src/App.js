@@ -3,7 +3,7 @@ import { Router } from '@reach/router';
 
 import AuthProvider from './Authentication/AuthProvider';
 import Home from './pages/home';
-import User from './pages/user';
+import User, { CurrentUser } from './pages/user';
 
 import { signOut } from './Authentication/firebaseAuth';
 
@@ -16,7 +16,7 @@ class App extends Component {
         </header>
         <Router>
           <Home path="/" />
-          <User path="user" />
+          <CurrentUser path="user" />
           <User path="user/:uid" />
         </Router>
       </AuthProvider>
