@@ -20,4 +20,8 @@ function resetPassword(email) {
   return auth.sendPasswordResetEmail(email, actionCodeSettings);
 }
 
-export { signIn, signOut, resetPassword, subscribeAuthChange };
+function getCurrentUser() {
+  return auth.currentUser;
+}
+
+export { signIn, signOut, resetPassword, subscribeAuthChange, getCurrentUser };
