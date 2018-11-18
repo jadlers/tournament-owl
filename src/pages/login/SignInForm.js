@@ -42,6 +42,7 @@ class SignInForm extends React.Component {
           <Input
             required
             autoFocus
+            autoComplete="email"
             name="user-email"
             type="email"
             placeholder="user@domain.org"
@@ -54,6 +55,7 @@ class SignInForm extends React.Component {
           Password
           <Input
             required
+            autoComplete="current-password"
             name="user-password"
             type="password"
             value={password}
