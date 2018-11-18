@@ -1,5 +1,6 @@
 import firebase from '@firebase/app';
 import '@firebase/auth';
+import '@firebase/firestore';
 
 const config = {
   apiKey: 'AIzaSyDvZIugPTDRdpHHPbqJzMpMBGQLchVw9uM',
@@ -12,6 +13,14 @@ const config = {
 
 firebase.initializeApp(config);
 
+// Initialize Cloud Firestore through Firebase
+const db = firebase.firestore();
+
+// Disable deprecated features
+db.settings({
+  timestampsInSnapshots: true,
+});
+
 const auth = firebase.auth();
 
-export { auth };
+export { auth, db };
