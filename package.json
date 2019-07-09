@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@emotion/core": "^10.0.0-beta.11",
-    "@emotion/styled": "^10.0.0-beta.11",
+    "@emotion/core": "^10.0.14",
+    "@emotion/styled": "^10.0.14",
     "@reach/router": "^1.2.1",
-    "emotion": "^9.2.12",
-    "firebase": "^5.5.8",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1",
-    "react-emotion": "^9.2.12",
-    "react-scripts": "2.1.1"
+    "emotion": "^10.0.14",
+    "firebase": "^6.2.4",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-emotion": "^10.0.0",
+    "react-scripts": "3.0.1"
   },
   "devDependencies": {
-    "firebase-tools": "^6.0.1",
+    "firebase-tools": "^7.0.2",
     "prettier": "^1.15.1"
   },
   "scripts": {
